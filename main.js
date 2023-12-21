@@ -21,3 +21,6 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     checklist = checklist;
     return {title, description, dueDate, priority, notes, checklist};
 }
+
+// Function that pushes a new project to the projectsArray
+addProjectToProjectsArray = project => projectsArray.push(project);
