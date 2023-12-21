@@ -1,0 +1,24 @@
+:root {
+    font-size: 20px;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.layout {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+}
+
+#bottom {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+#list-of-projects-container {
+    display: flex;
+    flex-direction: column;
+}
