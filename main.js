@@ -11,6 +11,9 @@ const ProjectFactory = (name) => {
     return {name, toDos};
 }
 
+// Function that pushes a new project to the projectsArray
+addProjectToProjectsArray = project => projectsArray.push(project);
+
 // ToDo factory
 const ToDoFactory = (title, description, dueDate, priority, notes, checklist) => {
     title = title;
@@ -22,5 +25,8 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
-// Function that pushes a new project to the projectsArray
-addProjectToProjectsArray = project => projectsArray.push(project);
+// DOM - list of all document.querySelector's
+const selectProjectsContainer = document.querySelector('#list-of-projects-container');
+const selectListOfToDosContainer = document.querySelector('#list-of-todos-container');
+const selectCreateNewProjectButton = document.querySelector('#create-new-project');
+const selectCreateNewToDoItemButton = document.querySelector('#create-new-todo-item');
