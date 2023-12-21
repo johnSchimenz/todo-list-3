@@ -11,9 +11,6 @@ const ProjectFactory = (name) => {
     return {name, toDos};
 }
 
-// ToDo arguments array
-const toDoArgumentsArray = ['title', 'description', 'dueDate', 'priority', 'notes', 'checklist'];
-
 // ToDo factory
 const ToDoFactory = (title, description, dueDate, priority, notes, checklist) => {
     title = title;
