@@ -17,11 +17,10 @@ addProjectToProjectsArray = project => projectsArray.push(project);
 // Alert box opens up to create first project
 do {
     const nameFirstProject = prompt('Create a name for your first project.  This name must not be blank.', 'Project1');
-    const nameCurrentProject = nameFirstProject;
 
     // If project title is non-blank, create project using ProjectFactory and push it to projectsArray
-    if (nameCurrentProject !== "") {
-        currentProject = ProjectFactory(nameCurrentProject);
+    if (nameFirstProject !== "") {
+        currentProject = ProjectFactory(nameFirstProject);
         addProjectToProjectsArray(currentProject);
     }
 } while (currentProject === "");
