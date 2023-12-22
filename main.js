@@ -25,8 +25,6 @@ do {
     }
 } while (currentProject === "");
 
-
-
 // ToDo factory
 const ToDoFactory = (title, description, dueDate, priority, notes, checklist) => {
     title = title;
