@@ -2,7 +2,7 @@
 const projectsArray = [];
 
 // Current project variable
-let currentProject;
+let currentProject = "";
 
 // Project factory
 const ProjectFactory = (name) => {
@@ -13,6 +13,20 @@ const ProjectFactory = (name) => {
 
 // Function that pushes a new project to the projectsArray
 addProjectToProjectsArray = project => projectsArray.push(project);
+
+// Alert box opens up to create first project
+do {
+    const nameFirstProject = prompt('Create a name for your first project.  This name must not be blank.', 'Project1');
+    const nameCurrentProject = nameFirstProject;
+
+    // If project title is non-blank, create project using ProjectFactory and push it to projectsArray
+    if (nameCurrentProject !== "") {
+        currentProject = ProjectFactory(nameCurrentProject);
+        addProjectToProjectsArray(currentProject);
+    }
+} while (currentProject === "");
+
+
 
 // ToDo factory
 const ToDoFactory = (title, description, dueDate, priority, notes, checklist) => {
