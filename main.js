@@ -4,11 +4,26 @@ const projectsArray = [];
 // Current project variable
 let currentProject = "";
 
+// DOM - list of all document.querySelector's
+const selectProjectsContainer = document.querySelector('#list-of-projects-container');
+const selectListOfToDosContainer = document.querySelector('#list-of-todos-container');
+const selectCreateNewProjectButton = document.querySelector('#create-new-project');
+const selectCreateNewToDoItemButton = document.querySelector('#create-new-todo-item');
+
 // Project factory
 const ProjectFactory = (name) => {
     name = name;
     toDos = [];
     return {name, toDos};
+}
+
+// DOM Function - displays each project as a button
+displayProjects = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        const displayProject = document.createElement('button');
+        displayProject.textContent = array[i].name;
+        selectProjectsContainer.appendChild(displayProject);
+    }
 }
 
 // Function that pushes a new project to the projectsArray
@@ -22,6 +37,7 @@ do {
     if (nameFirstProject !== "") {
         currentProject = ProjectFactory(nameFirstProject);
         addProjectToProjectsArray(currentProject);
+        displayProjects(projectsArray);
     }
 } while (currentProject === "");
 
@@ -36,8 +52,9 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
-// DOM - list of all document.querySelector's
-const selectProjectsContainer = document.querySelector('#list-of-projects-container');
-const selectListOfToDosContainer = document.querySelector('#list-of-todos-container');
-const selectCreateNewProjectButton = document.querySelector('#create-new-project');
-const selectCreateNewToDoItemButton = document.querySelector('#create-new-todo-item');
+/*
+for (let i = 0; i < projectsArray.length; i++) {
+    const displayProject = document.createElement('button');
+    displayProject.textContent = 
+}
+*/
