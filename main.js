@@ -64,7 +64,10 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
     return {title, description, dueDate, priority, notes, checklist};
 }
 
-// DOM = make Create New Project Button clickable
+// Array that lists all of the ToDo arguments
+const arrayToDoArguments = [title, description, dueDate, priority, notes, checklist];
+
+// DOM - make Create New Project Button clickable
 clickCreateNewProjectButton.addEventListener('click', () => {
 
     // DOM - Temporarily disable Create New Project Button so it's not double-clicked
@@ -116,4 +119,9 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         // DOM - Re-enable Create New Project Button so it's clickable again
         clickCreateNewProjectButton.removeAttribute('disabled');
     })
+})
+
+// DOM - make Create New ToDo Item Button clickable
+clickCreateNewToDoItemButton.addEventListener('click', () => {
+
 })
