@@ -71,14 +71,18 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     submitProjectButton.setAttribute('type', 'submit');
     selectBottomLeftContainer.appendChild(submitProjectButton);
 
-    // DOM - make button to submit project clickable
+    // DOM - make Submit button to submit project clickable
     const clickSubmitButton = document.querySelector('#submit');
     clickSubmitButton.addEventListener('click', () => {
 
-        // DOM - takes value in inputBox, creates project, and adds it to projectsArray
+        // Takes value in inputBox, creates project, and adds it to projectsArray
         const inputBoxText = document.querySelector('#newest-project');
         let newestProject = ProjectFactory(inputBoxText.value);
         addProjectToProjectsArray(newestProject);
+
+        // DOM - Remove Submit button and inputBox
+        selectBottomLeftContainer.removeChild(submitProjectButton);
+        selectBottomLeftContainer.removeChild(inputBox);
 
     })
 })
