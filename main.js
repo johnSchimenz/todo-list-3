@@ -24,6 +24,7 @@ displayProjects = (array) => {
     for (let i = 0; i < array.length; i++) {
         const project = document.createElement('button');
         project.textContent = array[i].name;
+        project.setAttribute('id', i);
         selectProjectsContainer.appendChild(project);
     }
 }
@@ -95,7 +96,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
 
-            // DOM - Re-enable Create New Project Button so it's clickable again
-    clickCreateNewProjectButton.removeAttribute('disabled');
+        // DOM - Re-enable Create New Project Button so it's clickable again
+        clickCreateNewProjectButton.removeAttribute('disabled');
     })
 })
