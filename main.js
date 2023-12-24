@@ -61,6 +61,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     const inputBox = document.createElement('input');
     inputBox.setAttribute('type', 'text');
     inputBox.setAttribute('id', 'newest-project');
+    inputBox.setAttribute('name', 'newest-project');
     selectBottomLeftContainer.appendChild(inputBox);
 
     // Create button to submit the inputted project title
@@ -73,6 +74,11 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     // DOM - make button to submit project clickable
     const clickSubmitButton = document.querySelector('#submit');
     clickSubmitButton.addEventListener('click', () => {
-        console.log("submit button works");
+
+        // DOM - takes value in inputBox, creates project, and adds it to projectsArray
+        const inputBoxText = document.querySelector('#newest-project');
+        let newestProject = ProjectFactory(inputBoxText.value);
+        addProjectToProjectsArray(newestProject);
+
     })
 })
