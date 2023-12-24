@@ -57,6 +57,9 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
 // DOM = make Create New Project Button clickable
 clickCreateNewProjectButton.addEventListener('click', () => {
 
+    // DOM - Temporarily disable Create New Project Button so it's not double-clicked
+    clickCreateNewProjectButton.setAttribute('disabled', 'disabled');
+
     // Create input box to type in new project title
     const inputBox = document.createElement('input');
     inputBox.setAttribute('type', 'text');
@@ -91,5 +94,8 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
+
+            // DOM - Re-enable Create New Project Button so it's clickable again
+    clickCreateNewProjectButton.removeAttribute('disabled');
     })
 })
