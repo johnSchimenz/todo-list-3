@@ -42,6 +42,14 @@ do {
         currentProject = ProjectFactory(nameFirstProject);
         addProjectToProjectsArray(currentProject);
         displayProjects(projectsArray);
+
+        // DOM - Make display of project buttons on left side clickable
+        const clickProjects = document.querySelectorAll('.project');
+        clickProjects.forEach((project) => {
+            project.addEventListener('click', () => {
+                console.log(project.textContent);
+            });
+        });
     }
 } while (currentProject === "");
 
@@ -96,6 +104,14 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
+
+        // DOM - Make display of project buttons on left side clickable
+        const clickProjects = document.querySelectorAll('.project');
+        clickProjects.forEach((project) => {
+            project.addEventListener('click', () => {
+                console.log('test worked');
+            });
+        });
 
         // DOM - Re-enable Create New Project Button so it's clickable again
         clickCreateNewProjectButton.removeAttribute('disabled');
