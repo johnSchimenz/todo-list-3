@@ -22,9 +22,9 @@ const ProjectFactory = (name) => {
 // DOM Function - displays each project as a button
 displayProjects = (array) => {
     for (let i = 0; i < array.length; i++) {
-        const displayProject = document.createElement('button');
-        displayProject.textContent = array[i].name;
-        selectProjectsContainer.appendChild(displayProject);
+        const project = document.createElement('button');
+        project.textContent = array[i].name;
+        selectProjectsContainer.appendChild(project);
     }
 }
 
@@ -84,5 +84,12 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         selectBottomLeftContainer.removeChild(submitProjectButton);
         selectBottomLeftContainer.removeChild(inputBox);
 
+        // DOM - Resets display of projects on left side of the webpage
+        for (let i = 0; i < projectsArray.length - 1; i++) {
+            selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
+        }
+
+        // DOM - Updates display of projects on left side of the webpage
+        displayProjects(projectsArray);
     })
 })
