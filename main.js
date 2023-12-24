@@ -25,6 +25,7 @@ displayProjects = (array) => {
         const project = document.createElement('button');
         project.textContent = array[i].name;
         project.setAttribute('id', i);
+        project.setAttribute('class', 'project');
         selectProjectsContainer.appendChild(project);
     }
 }
