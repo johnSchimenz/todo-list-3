@@ -80,7 +80,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     inputBox.setAttribute('name', 'newest-project');
     selectBottomLeftContainer.appendChild(inputBox);
 
-    // Create button to submit the inputted project title
+    // DOM - Create button to submit the inputted project title
     const submitProjectButton = document.createElement('button');
     submitProjectButton.textContent = 'Submit';
     submitProjectButton.setAttribute('id', 'submit');
@@ -123,7 +123,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 
 // DOM - make Create New ToDo Item Button clickable
 clickCreateNewToDoItemButton.addEventListener('click', () => {
-        
+    
     // DOM - create fieldset to submit newest ToDo item
     const fieldsetToDoItem = document.createElement('fieldset');
     selectBottomRightContainer.appendChild(fieldsetToDoItem);
@@ -151,4 +151,13 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         inputBox.setAttribute('name', arrayToDoArguments[i]);
         selectPairLabelInputContainer.appendChild(inputBox);
     }
+
+    // DOM - Create button to submit the newest ToDo Item information
+    const submitToDoItemButton = document.createElement('button');
+    submitToDoItemButton.textContent = 'Submit';
+    submitToDoItemButton.setAttribute('id', 'submit-todo-item');
+    submitToDoItemButton.setAttribute('type', 'submit');
+    fieldsetToDoItem.appendChild(submitToDoItemButton);
+    
+
 })
