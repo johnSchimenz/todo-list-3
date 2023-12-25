@@ -118,9 +118,15 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         const clickProjects = document.querySelectorAll('.project');
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
+
+                // DOM - updates currentProject to last clicked project and displays that project's ToDo Items
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
                         currentProject = projectsArray[i];
+
+                        const displayCurrentProjectToDoItems = document.createElement('div');
+                        displayCurrentProjectToDoItems.textContent = currentProject.toDos;
+                        selectBottomRightContainer.appendChild(displayCurrentProjectToDoItems);
                     }
                 }
             });
@@ -141,7 +147,7 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
     // DOM - create input boxes and labels for ToDo items
     for (let i = 0; i < arrayToDoArguments.length; i++) {
 
-        // DOM - creat containers for each input and label pair and make selectable
+        // DOM - create containers for each input and label pair and make selectable
         const pairLabelInputContainer = document.createElement('div');
         pairLabelInputContainer.setAttribute('id', 'container' + i);
         fieldsetToDoItem.appendChild(pairLabelInputContainer);
