@@ -123,19 +123,24 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 
 // DOM - make Create New ToDo Item Button clickable
 clickCreateNewToDoItemButton.addEventListener('click', () => {
+        
+    // DOM - create fieldset to submit newest ToDo item
+    const fieldsetToDoItem = document.createElement('fieldset');
+    selectBottomRightContainer.appendChild(fieldsetToDoItem);
 
     // DOM - create input boxes and labels for ToDo items
     for (let i = 0; i < arrayToDoArguments.length; i++) {
+
         const labelInputBox = document.createElement('label');
         labelInputBox.setAttribute('for', arrayToDoArguments[i]);
         labelInputBox.setAttribute('name', arrayToDoArguments[i]);
         labelInputBox.textContent = arrayToDoArguments[i];
-        selectBottomRightContainer.appendChild(labelInputBox);
+        fieldsetToDoItem.appendChild(labelInputBox);
         
         const inputBox = document.createElement('input');
         inputBox.setAttribute('type', 'text');
         inputBox.setAttribute('id', arrayToDoArguments[i]);
         inputBox.setAttribute('name', arrayToDoArguments[i]);
-        selectBottomRightContainer.appendChild(inputBox);
+        fieldsetToDoItem.appendChild(inputBox);
     }
 })
