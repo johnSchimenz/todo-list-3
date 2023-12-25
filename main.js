@@ -24,7 +24,7 @@ displayProjects = (array) => {
     for (let i = 0; i < array.length; i++) {
         const project = document.createElement('button');
         project.textContent = array[i].name;
-        project.setAttribute('id', i);
+        project.setAttribute('id', 'project' + i);
         project.setAttribute('class', 'project');
         selectProjectsContainer.appendChild(project);
     }
@@ -65,7 +65,7 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
 }
 
 // Array that lists all of the ToDo arguments
-const arrayToDoArguments = [title, description, dueDate, priority, notes, checklist];
+const arrayToDoArguments = ['title', 'description', 'dueDate', 'priority', 'notes', 'checklist'];
 
 // DOM - make Create New Project Button clickable
 clickCreateNewProjectButton.addEventListener('click', () => {
@@ -123,7 +123,15 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 
 // DOM - make Create New ToDo Item Button clickable
 clickCreateNewToDoItemButton.addEventListener('click', () => {
+
+    // DOM - create input boxes and labels for ToDo items
     for (let i = 0; i < arrayToDoArguments.length; i++) {
+        const labelInputBox = document.createElement('label');
+        labelInputBox.setAttribute('for', arrayToDoArguments[i]);
+        labelInputBox.setAttribute('name', arrayToDoArguments[i]);
+        labelInputBox.textContent = arrayToDoArguments[i];
+        selectBottomRightContainer.appendChild(labelInputBox);
+        
         const inputBox = document.createElement('input');
         inputBox.setAttribute('type', 'text');
         inputBox.setAttribute('id', arrayToDoArguments[i]);
