@@ -152,12 +152,47 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         selectPairLabelInputContainer.appendChild(inputBox);
     }
 
-    // DOM - Create button to submit the newest ToDo Item information
+    // DOM - Create Submit button to submit the newest ToDo Item information
     const submitToDoItemButton = document.createElement('button');
     submitToDoItemButton.textContent = 'Submit';
     submitToDoItemButton.setAttribute('id', 'submit-todo-item');
     submitToDoItemButton.setAttribute('type', 'submit');
     fieldsetToDoItem.appendChild(submitToDoItemButton);
     
+    // DOM - make Submit button to submit ToDo Item clickable
+    const clickSubmitToDoItemButton = document.querySelector('#submit-todo-item');
+    clickSubmitToDoItemButton.addEventListener('click', () => {
 
+        /*
+        // Takes values in each input box, creates project, and adds it to projectsArray
+        const inputBoxText = document.querySelector('#newest-project');
+        let newestProject = ProjectFactory(inputBoxText.value);
+        addProjectToProjectsArray(newestProject);
+
+        // DOM - Remove Submit button and inputBox
+        selectBottomLeftContainer.removeChild(submitProjectButton);
+        selectBottomLeftContainer.removeChild(inputBox);
+
+        // DOM - Resets display of projects on left side of the webpage
+        for (let i = 0; i < projectsArray.length - 1; i++) {
+            selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
+        }
+
+        // DOM - Updates display of projects on left side of the webpage
+        displayProjects(projectsArray);
+
+        // DOM - Make display of project buttons on left side clickable
+        const clickProjects = document.querySelectorAll('.project');
+        clickProjects.forEach((project) => {
+            project.addEventListener('click', () => {
+                console.log('test worked');
+            });
+        });
+
+        // DOM - Re-enable Create New Project Button so it's clickable again
+        clickCreateNewProjectButton.removeAttribute('disabled');
+        */
+
+    })
+    
 })
