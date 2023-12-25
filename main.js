@@ -121,7 +121,6 @@ clickCreateNewProjectButton.addEventListener('click', () => {
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
                         currentProject = projectsArray[i];
-                        console.log(currentProject);
                     }
                 }
             });
