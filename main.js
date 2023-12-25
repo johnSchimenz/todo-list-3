@@ -47,7 +47,13 @@ do {
         const clickProjects = document.querySelectorAll('.project');
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
-                console.log(project.textContent);
+                
+                // Search projectsArray for clicked project and make it the currentProject
+                for (let i = 0; i < projectsArray.length; i++) {
+                    if (project.textContent === projectsArray[i].name) {
+                        currentProject = projectsArray[i];
+                    }
+                }
             });
         });
     }
@@ -112,7 +118,12 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         const clickProjects = document.querySelectorAll('.project');
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
-                console.log('test worked');
+                for (let i = 0; i < projectsArray.length; i++) {
+                    if (project.textContent === projectsArray[i].name) {
+                        currentProject = projectsArray[i];
+                        console.log(currentProject);
+                    }
+                }
             });
         });
 
