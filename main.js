@@ -1,7 +1,7 @@
 // Projects array
 const projectsArray = [];
 
-// Current project variable
+// Current project variable initialized
 let currentProject = "";
 
 // DOM - list of all document.querySelector's
@@ -180,14 +180,23 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
     const clickSubmitToDoItemButton = document.querySelector('#submit-todo-item');
     clickSubmitToDoItemButton.addEventListener('click', () => {
 
-        // Array created to store newest ToDo item
-        const newestToDoItemArray = [];
+        // Initialize array for all inputBox values
+        const arrayToDoInputBoxes = [];
 
-        // Push all newest ToDo Items to an array to be displayed
+        // Push all newest ToDo Item inputBox's to arrayToDoInputBoxes array
         for (let i = 0; i < arrayToDoArguments.length; i++) {
             let inputBoxText = document.querySelector('#' + arrayToDoArguments[i]);
-            newestToDoItemArray.push(inputBoxText.value);
+            arrayToDoInputBoxes[i] = inputBoxText.value;
         }
+
+        // Create new ToDo Item object using ToDoFactory... I don't like how this is hard-coded
+        let newestToDoItem = ToDoFactory(arrayToDoInputBoxes[0], 
+            arrayToDoInputBoxes[1], 
+            arrayToDoInputBoxes[2], 
+            arrayToDoInputBoxes[3], 
+            arrayToDoInputBoxes[4], 
+            arrayToDoInputBoxes[5]);
+            console.log(newestToDoItem);
 
         // DOM - Remove Submit button and inputBox's
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
@@ -199,10 +208,8 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             const selectToDoItem = document.querySelector('.todo-item-display');
             selectListOfToDosContainer.removeChild(selectToDoItem);
         }
+
         /*
-
-
-    
         for (let i = 0; i < projectsArray.length - 1; i++) {
             selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
         }
