@@ -125,8 +125,9 @@ clickCreateNewProjectButton.addEventListener('click', () => {
                         currentProject = projectsArray[i];
 
                         const displayCurrentProjectToDoItems = document.createElement('div');
-                        displayCurrentProjectToDoItems.textContent = currentProject.toDos;
-                        selectBottomRightContainer.appendChild(displayCurrentProjectToDoItems);
+                        displayCurrentProjectToDoItems.textContent = currentProject.name;
+                        displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
+                        selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
                     }
                 }
             });
@@ -188,11 +189,20 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             newestToDoItemArray.push(inputBoxText.value);
         }
 
-        // DOM - Remove Submit button and inputBox
+        // DOM - Remove Submit button and inputBox's
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
+        // DOM - Resets display of ToDos on right side of the webpage
+        let countToDoItems = selectListOfToDosContainer.childElementCount;
+
+        for (let i = 0; i < countToDoItems; i++) {
+            const selectToDoItem = document.querySelector('.todo-item-display');
+            selectListOfToDosContainer.removeChild(selectToDoItem);
+        }
         /*
-        // DOM - Resets display of projects on left side of the webpage
+
+
+    
         for (let i = 0; i < projectsArray.length - 1; i++) {
             selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
         }
