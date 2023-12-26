@@ -73,7 +73,7 @@ const ToDoFactory = (title, description, dueDate, priority, notes, checklist) =>
 // Array that lists all of the ToDo arguments
 const arrayToDoArguments = ['title', 'description', 'dueDate', 'priority', 'notes', 'checklist'];
 
-// DOM - make Create New Project Button clickable
+// DOM - describes what happens when Create New Project Button is clicked
 clickCreateNewProjectButton.addEventListener('click', () => {
 
     // DOM - Temporarily disable Create New Project Button so it's not double-clicked
@@ -137,7 +137,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     })
 })
 
-// DOM - make Create New ToDo Item Button clickable
+// DOM - describes what happens when Create New ToDo Item Button is clicked
 clickCreateNewToDoItemButton.addEventListener('click', () => {
     
     // DOM - create fieldset to submit newest ToDo item
@@ -179,6 +179,13 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
     const clickSubmitToDoItemButton = document.querySelector('#submit-todo-item');
     clickSubmitToDoItemButton.addEventListener('click', () => {
 
+        // Array created to store newest ToDo item
+        const newestToDoItemArray = [];
+
+        for (let i = 0; i < arrayToDoArguments.length; i++) {
+            let inputBoxText = document.querySelector('#' + arrayToDoArguments[i]);
+            newestToDoItemArray.push(inputBoxText.value);
+        }
         /*
         // Takes values in each input box, creates project, and adds it to projectsArray
         const inputBoxText = document.querySelector('#newest-project');
