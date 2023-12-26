@@ -182,20 +182,16 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         // Array created to store newest ToDo item
         const newestToDoItemArray = [];
 
+        // Push all newest ToDo Items to an array to be displayed
         for (let i = 0; i < arrayToDoArguments.length; i++) {
             let inputBoxText = document.querySelector('#' + arrayToDoArguments[i]);
             newestToDoItemArray.push(inputBoxText.value);
         }
-        /*
-        // Takes values in each input box, creates project, and adds it to projectsArray
-        const inputBoxText = document.querySelector('#newest-project');
-        let newestProject = ProjectFactory(inputBoxText.value);
-        addProjectToProjectsArray(newestProject);
 
         // DOM - Remove Submit button and inputBox
-        selectBottomLeftContainer.removeChild(submitProjectButton);
-        selectBottomLeftContainer.removeChild(inputBox);
+        selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
+        /*
         // DOM - Resets display of projects on left side of the webpage
         for (let i = 0; i < projectsArray.length - 1; i++) {
             selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
