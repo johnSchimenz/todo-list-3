@@ -141,6 +141,9 @@ clickCreateNewProjectButton.addEventListener('click', () => {
 // DOM - describes what happens when Create New ToDo Item Button is clicked
 clickCreateNewToDoItemButton.addEventListener('click', () => {
     
+    // DOM - Temporarily disable Create ToDo Item Button so it's not double-clicked
+    clickCreateNewToDoItemButton.setAttribute('disabled', 'disabled');
+
     // DOM - create fieldset to submit newest ToDo item
     const fieldsetToDoItem = document.createElement('fieldset');
     selectBottomRightContainer.appendChild(fieldsetToDoItem);
@@ -210,10 +213,6 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         }
 
         /*
-        for (let i = 0; i < projectsArray.length - 1; i++) {
-            selectProjectsContainer.removeChild(selectProjectsContainer.firstElementChild);
-        }
-
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
 
@@ -224,11 +223,10 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
                 console.log('test worked');
             });
         });
-
-        // DOM - Re-enable Create New Project Button so it's clickable again
-        clickCreateNewProjectButton.removeAttribute('disabled');
         */
 
+        // DOM - Re-enable Create New Project Button so it's clickable again
+        clickCreateNewToDoItemButton.removeAttribute('disabled');
     })
     
 })
