@@ -193,7 +193,8 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         }
 
         // Create new ToDo Item object using ToDoFactory... I don't like how this is hard-coded
-        let newestToDoItem = ToDoFactory(arrayToDoInputBoxes[0], 
+        let newestToDoItem = ToDoFactory(
+            arrayToDoInputBoxes[0], 
             arrayToDoInputBoxes[1], 
             arrayToDoInputBoxes[2], 
             arrayToDoInputBoxes[3], 
@@ -211,6 +212,13 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             const selectToDoItem = document.querySelector('.todo-item-display');
             selectListOfToDosContainer.removeChild(selectToDoItem);
         }
+
+        // DOM - Displays all of project object's toDos
+        const displayCurrentProjectToDoItems = document.createElement('div');
+        displayCurrentProjectToDoItems.textContent = currentProject.toDos;
+        console.log(currentProject);
+        console.log(currentProject.toDos);
+        selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
 
         /*
         // DOM - Updates display of projects on left side of the webpage
