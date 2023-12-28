@@ -194,27 +194,7 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             arrayToDoInputBoxes[5]);
         
         // Push newest ToDo Item to currentProject and update projectsArray
-        console.log('projectsArray is ');
-        console.log(projectsArray);
         currentProject.toDos.push(newestToDoItem);
-        console.log('Now, projects array is ');
-        console.log(projectsArray);
-        
-        /*
-        for (let i = 0; i < projectsArray.length; i++) {
-            if (projectsArray[i].name === currentProject.name) {
-
-                console.log('Previous projectsArray is ');
-                console.log(projectsArray);
-
-                // projectsArray[i] = currentProject;
-
-                console.log('Now projectsArray is ');
-                console.log(projectsArray);
-
-            }
-        }
-        */
 
         // DOM - Remove Submit button and inputBox's for ToDo Item
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
