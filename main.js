@@ -114,13 +114,13 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
 
-                // DOM - updates currentProject to last clicked project and displays that project's ToDo Items
+                // DOM - updates currentProject to last clicked project and displays that project's ToDo Items --- CURRENTLY CAN DISPLAY .name but not TODOS
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
                         currentProject = projectsArray[i];
 
                         const displayCurrentProjectToDoItems = document.createElement('div');
-                        displayCurrentProjectToDoItems.textContent = currentProject.name;
+                        displayCurrentProjectToDoItems.textContent = projectsArray[i].name;
                         displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
                         selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
                     }
