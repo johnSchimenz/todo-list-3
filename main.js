@@ -94,6 +94,9 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         let newestProject = ProjectFactory(inputBoxText.value);
         addProjectToProjectsArray(newestProject);
 
+        // Makes newestProject the currentProject
+        currentProject = newestProject;
+
         // DOM - Remove Submit button and inputBox
         selectBottomLeftContainer.removeChild(submitProjectButton);
         selectBottomLeftContainer.removeChild(inputBox);
@@ -198,6 +201,10 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
 
         // DOM - Remove Submit button and inputBox's for ToDo Item
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
+
+        // DOM - Display currentProject's toDos
+        selectListOfToDosContainer.textContent = currentProject.toDos;
+
 
         /*
         // DOM - Resets display of ToDos on right side of the webpage - NOT WORKING
