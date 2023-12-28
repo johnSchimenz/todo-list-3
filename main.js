@@ -1,4 +1,4 @@
-// Projects array
+// Projects array initialized
 const projectsArray = [];
 
 // Current project variable initialized
@@ -43,19 +43,11 @@ do {
         addProjectToProjectsArray(currentProject);
         displayProjects(projectsArray);
 
-        // DOM - Make display of project buttons on left side clickable
-        const clickProjects = document.querySelectorAll('.project');
-        clickProjects.forEach((project) => {
-            project.addEventListener('click', () => {
-                
-                // Search projectsArray for clicked project and make it the currentProject
-                for (let i = 0; i < projectsArray.length; i++) {
-                    if (project.textContent === projectsArray[i].name) {
-                        currentProject = projectsArray[i];
-                    }
-                }
+        // DOM - Make first project created clickable
+        const clickFirstProject = document.querySelector('.project');
+            clickFirstProject.addEventListener('click', () => {
+                currentProject = projectsArray[0];
             });
-        });
     }
 } while (currentProject === "");
 
@@ -93,7 +85,7 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     submitProjectButton.setAttribute('type', 'submit');
     selectBottomLeftContainer.appendChild(submitProjectButton);
 
-    // DOM - make Submit button to submit project clickable
+    // DOM - make Submit button for a project clickable
     const clickSubmitButton = document.querySelector('#submit');
     clickSubmitButton.addEventListener('click', () => {
 
@@ -200,17 +192,35 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             arrayToDoInputBoxes[3], 
             arrayToDoInputBoxes[4], 
             arrayToDoInputBoxes[5]);
-            console.log(newestToDoItem);
         
         // Push newest ToDo Item to currentProject and update projectsArray
+        console.log('projectsArray is ');
+        console.log(projectsArray);
         currentProject.toDos.push(newestToDoItem);
- 
+        console.log('Now, projects array is ');
+        console.log(projectsArray);
+        
+        /*
+        for (let i = 0; i < projectsArray.length; i++) {
+            if (projectsArray[i].name === currentProject.name) {
 
+                console.log('Previous projectsArray is ');
+                console.log(projectsArray);
+
+                // projectsArray[i] = currentProject;
+
+                console.log('Now projectsArray is ');
+                console.log(projectsArray);
+
+            }
+        }
+        */
 
         // DOM - Remove Submit button and inputBox's for ToDo Item
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
-        // DOM - Resets display of ToDos on right side of the webpage
+        /*
+        // DOM - Resets display of ToDos on right side of the webpage - NOT WORKING
         let countToDoItems = selectListOfToDosContainer.childElementCount;
 
         for (let i = 0; i < countToDoItems; i++) {
@@ -221,9 +231,8 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         // DOM - Displays all of project object's toDos
         const displayCurrentProjectToDoItems = document.createElement('div');
         displayCurrentProjectToDoItems.textContent = currentProject.toDos;
-        console.log(currentProject);
-        console.log(currentProject.toDos);
         selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+        */
 
         /*
         // DOM - Updates display of projects on left side of the webpage
