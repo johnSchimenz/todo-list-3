@@ -201,8 +201,13 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
             arrayToDoInputBoxes[4], 
             arrayToDoInputBoxes[5]);
             console.log(newestToDoItem);
+        
+        // Push newest ToDo Item to currentProject and update projectsArray
+        currentProject.toDos.push(newestToDoItem);
+ 
 
-        // DOM - Remove Submit button and inputBox's
+
+        // DOM - Remove Submit button and inputBox's for ToDo Item
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
         // DOM - Resets display of ToDos on right side of the webpage
