@@ -104,6 +104,9 @@ clickCreateNewProjectButton.addEventListener('click', () => {
     const clickSubmitButton = document.querySelector('#submit');
     clickSubmitButton.addEventListener('click', () => {
 
+        ///////
+        const clickProjects = document.querySelectorAll('.project');
+
         // Takes value in inputBox, creates project, and adds it to projectsArray
         const inputBoxText = document.querySelector('#newest-project');
         let newestProject = ProjectFactory(inputBoxText.value);
@@ -131,7 +134,6 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         selectListOfToDosContainer.appendChild(toDoItemContainer);
 
         // DOM - Make display of project buttons on left side clickable
-        const clickProjects = document.querySelectorAll('.project');
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
 
