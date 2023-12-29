@@ -47,6 +47,13 @@ do {
         const clickFirstProject = document.querySelector('.project');
             clickFirstProject.addEventListener('click', () => {
                 currentProject = projectsArray[0];
+
+                const displayCurrentProjectToDoItems = document.createElement('div');
+                console.log(currentProject.toDos);
+                displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
+                displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
+                selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+
             });
     }
 } while (currentProject === "");
@@ -109,18 +116,26 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
 
+        // DOM - Updates display of ToDo Items on right side of the webpage
+        let displayCurrentProjectToDoItems = document.createElement('div');
+        console.log(currentProject.toDos);
+        displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
+        displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
+        selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+
         // DOM - Make display of project buttons on left side clickable
         const clickProjects = document.querySelectorAll('.project');
         clickProjects.forEach((project) => {
             project.addEventListener('click', () => {
 
-                // DOM - updates currentProject to last clicked project and displays that project's ToDo Items --- CURRENTLY CAN DISPLAY .name but not TODOS
+                // DOM - updates currentProject to last clicked project and displays that project's ToDo Items
                 for (let i = 0; i < projectsArray.length; i++) {
                     if (project.textContent === projectsArray[i].name) {
                         currentProject = projectsArray[i];
 
-                        const displayCurrentProjectToDoItems = document.createElement('div');
-                        displayCurrentProjectToDoItems.textContent = projectsArray[i].name;
+                        displayCurrentProjectToDoItems = document.createElement('div');
+                        console.log(currentProject.toDos);
+                        displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
                         displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
                         selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
                     }
@@ -203,8 +218,6 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
         // DOM - Display currentProject's toDos
-        console.log(JSON.stringify(currentProject.toDos));
-
         selectListOfToDosContainer.textContent = JSON.stringify(currentProject.toDos);
 
 
