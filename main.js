@@ -48,11 +48,19 @@ do {
             clickFirstProject.addEventListener('click', () => {
                 currentProject = projectsArray[0];
 
-                const displayCurrentProjectToDoItems = document.createElement('div');
-                console.log(currentProject.toDos);
-                displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
-                displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
-                selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+                // DOM - Remove any previously displayed ToDo Items
+                let numberOfChildElements = selectListOfToDosContainer.childElementCount
+
+                do {
+                    numberOfChildElements = numberOfChildElements - 1;
+                    selectListOfToDosContainer.remove
+                } while (numberOfChildElements > 0);
+
+                // DOM - Display currentProject's toDos
+                const toDoItemContainer = document.createElement('div');
+                toDoItemContainer.textContent = JSON.stringify(currentProject.toDos);
+                toDoItemContainer.setAttribute('class', 'to-do-item-container');
+                selectListOfToDosContainer.appendChild(toDoItemContainer);
 
             });
     }
@@ -116,12 +124,11 @@ clickCreateNewProjectButton.addEventListener('click', () => {
         // DOM - Updates display of projects on left side of the webpage
         displayProjects(projectsArray);
 
-        // DOM - Updates display of ToDo Items on right side of the webpage
-        let displayCurrentProjectToDoItems = document.createElement('div');
-        console.log(currentProject.toDos);
-        displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
-        displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
-        selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+        // DOM - Display currentProject's toDos
+        const toDoItemContainer = document.createElement('div');
+        toDoItemContainer.textContent = JSON.stringify(currentProject.toDos);
+        toDoItemContainer.setAttribute('class', 'to-do-item-container');
+        selectListOfToDosContainer.appendChild(toDoItemContainer);
 
         // DOM - Make display of project buttons on left side clickable
         const clickProjects = document.querySelectorAll('.project');
@@ -133,11 +140,11 @@ clickCreateNewProjectButton.addEventListener('click', () => {
                     if (project.textContent === projectsArray[i].name) {
                         currentProject = projectsArray[i];
 
-                        displayCurrentProjectToDoItems = document.createElement('div');
-                        console.log(currentProject.toDos);
-                        displayCurrentProjectToDoItems.textContent = JSON.stringify(currentProject.toDos);
-                        displayCurrentProjectToDoItems.setAttribute('class', 'todo-item-display');
-                        selectListOfToDosContainer.appendChild(displayCurrentProjectToDoItems);
+                    // DOM - Display currentProject's toDos
+                    const toDoItemContainer = document.createElement('div');
+                    toDoItemContainer.textContent = JSON.stringify(currentProject.toDos);
+                    toDoItemContainer.setAttribute('class', 'to-do-item-container');
+                    selectListOfToDosContainer.appendChild(toDoItemContainer);
                     }
                 }
             });
@@ -218,7 +225,10 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
         // DOM - Display currentProject's toDos
-        selectListOfToDosContainer.textContent = JSON.stringify(currentProject.toDos);
+        const toDoItemContainer = document.createElement('div');
+        toDoItemContainer.textContent = JSON.stringify(currentProject.toDos);
+        toDoItemContainer.setAttribute('class', 'to-do-item-container');
+        selectListOfToDosContainer.appendChild(toDoItemContainer);
 
 
         /*
