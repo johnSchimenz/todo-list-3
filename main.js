@@ -203,7 +203,9 @@ clickCreateNewToDoItemButton.addEventListener('click', () => {
         selectBottomRightContainer.removeChild(fieldsetToDoItem);
 
         // DOM - Display currentProject's toDos
-        selectListOfToDosContainer.textContent = currentProject.toDos;
+        console.log(JSON.stringify(currentProject.toDos));
+
+        selectListOfToDosContainer.textContent = JSON.stringify(currentProject.toDos);
 
 
         /*
